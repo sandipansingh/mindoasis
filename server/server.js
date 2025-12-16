@@ -18,7 +18,12 @@ const projectRoot = path.join(__dirname, "..");
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(projectRoot, "public"))); // Serve static files from public folder
+
+// Serve static files
+app.use(express.static(path.join(projectRoot, "public")));
+app.use("/css", express.static(path.join(projectRoot, "public", "css")));
+app.use("/js", express.static(path.join(projectRoot, "public", "js")));
+app.use("/assets", express.static(path.join(projectRoot, "public", "assets")));
 
 // Serve index.html at root
 app.get("/", (req, res) => {
@@ -242,6 +247,10 @@ app.get("/api/health", (req, res) => {
 });
 
 // Start server
-app.listen(PORT, () => {
-  console.log(`🌿 Mind Oasis running on http://localhost:${PORT}`);
-});
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`🌿 Mind Oasis running on http://localhost:${PORT}`);
+  });
+}
+
+export default app;
