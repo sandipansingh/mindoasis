@@ -1,10 +1,8 @@
-// --- API ENDPOINTS (UPDATE THESE!) ---
-// 1. URL for the Gemini API call (AI Reflection)
-const GEMINI_CLOUD_FUNCTION_URL = "YOUR_LOCAL_FIREBASE_FUNCTION_URL_HERE";
-
-// 2. URL for the simple PHQ-2 Quiz scoring (If using a separate Express server)
-// --- CHANGED TO A HYPOTHETICAL LOCAL NETWORK ADDRESS (192.168.1.100) ---
-const PHQ2_QUIZ_API_URL = "http://192.168.1.100:3000/api/checkin";
+// --- API ENDPOINTS ---
+const API_BASE_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:3000/api"
+    : "/api"; // Use relative path in production
 
 // =================================================================
 // SECTION 1: AI Reflection Form (Mood & Text Entry) Logic
@@ -75,7 +73,7 @@ if (checkinForm && moodInput && entryTextarea && outputDiv && loadingDiv) {
     loadingDiv.style.display = "block";
 
     try {
-      const response = await fetch(GEMINI_CLOUD_FUNCTION_URL, {
+      const response = await fetch(`${API_BASE_URL}/reflection`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ mood, entry }),
@@ -209,7 +207,7 @@ if (quizForm && resultDisplay && resultMessage) {
     }
 
     try {
-      const response = await fetch(PHQ2_QUIZ_API_URL, {
+      const response = await fetch(`${API_BASE_URL}/quiz`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(scoreData),
@@ -231,7 +229,7 @@ if (quizForm && resultDisplay && resultMessage) {
     } catch (error) {
       resultMessage.innerHTML = `
                 <strong>Connection Error.</strong> 
-                Please ensure the backend server for the quiz is running on <code>${PHQ2_QUIZ_API_URL}</code>.
+                Please ensure the backend server for the quiz is running on <code>${API_BASE_URL}/quiz</code>.
                 <br>Error: ${error.message}
             `;
 
