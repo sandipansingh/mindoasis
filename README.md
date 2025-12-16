@@ -29,6 +29,22 @@ cd mindoasis
 npm install
 ```
 
+3. Create a `.env` file in the root directory:
+
+```bash
+cp .env.example .env
+```
+
+Or create it manually with the following variables:
+
+```env
+OPENROUTER_API_KEY=your_openrouter_api_key_here
+OPENROUTER_MODEL=nvidia/nemotron-3-nano-30b-a3b:free
+PORT=3000
+```
+
+Get your API key from [OpenRouter](https://openrouter.ai/keys) and update the `.env` file with your configuration.
+
 ## Usage
 
 1. Start the server:
