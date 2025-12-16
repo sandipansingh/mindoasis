@@ -1,122 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MIND OASIS - Your Trusted Guide</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <nav class="navbar">
-        <div class="nav-brand">MIND OASIS</div>
-        <div class="nav-links">
-            <a href="#checkin-anchor">AI Check-in</a>
-            <a href="#quiz-anchor">PHQ-2 Quiz</a>
-            <a href="#">Find Help</a>
-            <a href="#">About Us</a>
-            <i class="fas fa-search"></i>
-            <i class="fas fa-user"></i>
-        </div>
-        <button class="nav-donate-btn">Donate</button>
+      <div class="nav-brand">MIND OASIS</div>
+      <div class="nav-links">
+        <a href="#checkin-anchor">AI Check-in</a>
+        <a href="#quiz-anchor">PHQ-2 Quiz</a>
+        <a href="#">Find Help</a>
+        <a href="#">About Us</a>
+        <i class="fas fa-search"></i>
+        <i class="fas fa-user"></i>
+      </div>
+      <button class="nav-donate-btn">Donate</button>
     </nav>
 
     <section class="hero-section">
-        <div class="hero-content">
-            <h1>Your trusted guide to mental health & wellness.</h1>
-            <p>Start improving your mental health and well-being today. MIND OASIS shows you how.</p>
-            <button class="primary-cta-btn" onclick="document.getElementById('checkin-anchor').scrollIntoView({behavior: 'smooth'})">
-                Take Your Quick Check-in →
-            </button>
-        </div>
+      <div class="hero-content">
+        <h1>Your trusted guide to mental health & wellness.</h1>
+        <p>
+          Start improving your mental health and well-being today. MIND OASIS
+          shows you how.
+        </p>
+        <button
+          class="primary-cta-btn"
+          onclick="document.getElementById('checkin-anchor').scrollIntoView({behavior: 'smooth'})"
+        >
+          Take Your Quick Check-in →
+        </button>
+      </div>
     </section>
 
     <section class="resource-preview-section">
-        <h2>Explore Topics & Resources</h2>
-        <div class="topic-grid">
-            <div class="topic-card">
-                <h3>Anxiety</h3>
-                <p>Tips to manage anxiety and reclaim peace of mind.</p>
-                <a href="anxiety.html" class="see-all-link">See All →</a> 
-            </div>
-            <div class="topic-card">
-                <h3>Stress Management</h3>
-                <p>Strategies to handle everyday stress and prevent burnout.</p>
-                <a href="stress.html" class="see-all-link">See All →</a>
-            </div>
-            <div class="topic-card">
-                <h3>Depression Help</h3>
-                <p>Understanding symptoms, treatment, and finding support.</p>
-                <a href="Depression.html" class="see-all-link">See All →</a>
-            </div>
+      <h2>Explore Topics & Resources</h2>
+      <div class="topic-grid">
+        <div class="topic-card">
+          <h3>Anxiety</h3>
+          <p>Tips to manage anxiety and reclaim peace of mind.</p>
+          <a href="anxiety.html" class="see-all-link">See All →</a>
         </div>
+        <div class="topic-card">
+          <h3>Stress Management</h3>
+          <p>Strategies to handle everyday stress and prevent burnout.</p>
+          <a href="stress.html" class="see-all-link">See All →</a>
+        </div>
+        <div class="topic-card">
+          <h3>Depression Help</h3>
+          <p>Understanding symptoms, treatment, and finding support.</p>
+          <a href="Depression.html" class="see-all-link">See All →</a>
+        </div>
+      </div>
     </section>
 
     <section id="checkin-anchor" class="quiz-section">
-        <div class="container"> 
-            
-            <header>
-                <div class="header-content">
-                    <img src="/oasis-icon.jpg" alt="Mind Oasis Logo - A Calming Visual" class="app-icon">
-                    <h1 class="app-title">AI Mental Check-in 🌿</h1>
-                </div>
-                <p class="subtitle">Your space for calm, AI-guided reflection.</p>
-            </header>
+      <div class="container">
+        <header>
+          <div class="header-content">
+            <img
+              src="/oasis-icon.png"
+              alt="Mind Oasis Logo - A Calming Visual"
+              class="app-icon"
+            />
+            <h1 class="app-title">AI Mental Check-in 🌿</h1>
+          </div>
+          <p class="subtitle">Your space for calm, AI-guided reflection.</p>
+        </header>
 
-            <main class="main-content">
-                <form id="checkin-form">
-                    
-                    <section class="mood-selection">
-                        <h2>How are you feeling right now?</h2>
-                        <div class="mood-options">
-                            <button type="button" class="mood-btn" data-mood="calm">😌 Calm</button>
-                            <button type="button" class="mood-btn" data-mood="happy">😊 Happy</button>
-                            <button type="button" class="mood-btn" data-mood="anxious">😥 Anxious</button>
-                            <button type="button" class="mood-btn" data-mood="sad">😔 Sad</button>
-                            <button type="button" class="mood-btn" data-mood="tired">😴 Tired</button>
-                        </div>
-                        <input type="hidden" id="mood" name="mood" required> 
-                    </section>
-
-                    <label for="entry" class="input-label">Share your thoughts:</label>
-                 <textarea id="entry" name="entry" rows="4" placeholder="Briefly describe what's on your mind..."></textarea>
-                    
-                    <button type="submit" id="submit-btn" disabled>Get Personalized Reflection</button>
-                </form>
-
-                <div id="loading" class="loading-message">🌀 Processing your thoughts...</div>
-                
-                <section id="reflection-output" class="output reflection-box"></section>
-            </main>
-
-            <section id="mood-log-area" class="output log-box">
-                <h2>Activity Log</h2>
-                <ul id="mood-log-list">
-                    <li> Initial setup</li>
-                </ul>
+        <main class="main-content">
+          <form id="checkin-form">
+            <section class="mood-selection">
+              <h2>How are you feeling right now?</h2>
+              <div class="mood-options">
+                <button type="button" class="mood-btn" data-mood="calm">
+                  😌 Calm
+                </button>
+                <button type="button" class="mood-btn" data-mood="happy">
+                  😊 Happy
+                </button>
+                <button type="button" class="mood-btn" data-mood="anxious">
+                  😥 Anxious
+                </button>
+                <button type="button" class="mood-btn" data-mood="sad">
+                  😔 Sad
+                </button>
+                <button type="button" class="mood-btn" data-mood="tired">
+                  😴 Tired
+                </button>
+              </div>
+              <input type="hidden" id="mood" name="mood" required />
             </section>
-        </div>
+
+            <label for="entry" class="input-label">Share your thoughts:</label>
+            <textarea
+              id="entry"
+              name="entry"
+              rows="4"
+              placeholder="Briefly describe what's on your mind..."
+            ></textarea>
+
+            <button type="submit" id="submit-btn" disabled>
+              Get Personalized Reflection
+            </button>
+          </form>
+
+          <div id="loading" class="loading-message">
+            🌀 Processing your thoughts...
+          </div>
+
+          <section
+            id="reflection-output"
+            class="output reflection-box"
+          ></section>
+        </main>
+
+        <section id="mood-log-area" class="output log-box">
+          <h2>Activity Log</h2>
+          <ul id="mood-log-list">
+            <li>Initial setup</li>
+          </ul>
+        </section>
+      </div>
     </section>
-    
-    <section id="quiz-anchor" class="quiz-section" style="background-color: var(--secondary-color);">
-        <div class="container" style="margin-top: 0;">
-             <h2>Quick Mental Health Screen (PHQ-2)</h2>
-             <form id="mental-health-quiz">
-                 <p>Loading quiz...</p> 
-                 </form>
-            
-             <div id="result-display" class="hidden">
-                 <h2>Your Oasis Check-in Results:</h2>
-                 <p id="result-message"></p>
-                 <div class="resource-section">
-                     <button id="resource-button" class="primary-cta-btn">Find Immediate Resources</button>
-                 </div>
-             </div>
+
+    <section
+      id="quiz-anchor"
+      class="quiz-section"
+      style="background-color: var(--secondary-color)"
+    >
+      <div class="container" style="margin-top: 0">
+        <h2>Quick Mental Health Screen (PHQ-2)</h2>
+        <form id="mental-health-quiz">
+          <p>Loading quiz...</p>
+        </form>
+
+        <div id="result-display" class="hidden">
+          <h2>Your Oasis Check-in Results:</h2>
+          <p id="result-message"></p>
+          <div class="resource-section">
+            <button id="resource-button" class="primary-cta-btn">
+              Find Immediate Resources
+            </button>
+          </div>
         </div>
+      </div>
     </section>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
