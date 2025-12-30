@@ -258,3 +258,81 @@ if (resourceButton) {
     // Implement actual redirection here: window.location.href = '/resources';
   });
 }
+
+// =================================================================
+// SECTION 3: Donation System Logic
+// =================================================================
+
+const donationModal = document.getElementById("donation-modal");
+const donateBtn = document.querySelector(".nav-donate-btn");
+const closeDonationModal = document.querySelector(".close-modal");
+const donationForm = document.getElementById("donation-form");
+const donationMessage = document.getElementById("donation-message");
+
+if (donationModal && donateBtn && closeDonationModal) {
+  // Open Modal
+  donateBtn.addEventListener("click", () => {
+    donationModal.style.display = "block";
+    donationMessage.classList.add("hidden");
+    donationMessage.className = "hidden"; // Reset classes
+    donationForm.reset();
+  });
+
+  // Close Modal
+  closeDonationModal.addEventListener("click", () => {
+    donationModal.style.display = "none";
+  });
+
+  // Close Modal on outside click
+  window.addEventListener("click", (event) => {
+    if (event.target === donationModal) {
+      donationModal.style.display = "none";
+    }
+  });
+
+  // Handle Donation Submission
+  if (donationForm) {
+    donationForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const amount = document.getElementById("amount").value;
+      const name = document.getElementById("donor-name").value;
+      const email = document.getElementById("donor-email").value;
+      const submitBtn = donationForm.querySelector("button[type='submit']");
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Processing...";
+
+      try {
+        const response = await fetch(`${API_BASE_URL}/donate`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ amount, name, email }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          donationMessage.textContent = data.message;
+          donationMessage.className = "success";
+          donationMessage.classList.remove("hidden");
+          donationForm.reset();
+          setTimeout(() => {
+            donationModal.style.display = "none";
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Donate Now";
+            donationMessage.classList.add("hidden");
+          }, 3000);
+        } else {
+          throw new Error(data.message || "Donation failed");
+        }
+      } catch (error) {
+        donationMessage.textContent = error.message;
+        donationMessage.className = "error";
+        donationMessage.classList.remove("hidden");
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Donate Now";
+      }
+    });
+  }
+}

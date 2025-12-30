@@ -60,13 +60,6 @@ app.get("/components/:component", (req, res, next) => {
   res.sendFile(componentPath);
 });
 
-// 404 handler
-app.use((req, res) => {
-  res
-    .status(404)
-    .sendFile(path.join(projectRoot, "public", "pages", "404.html"));
-});
-
 // Configuration
 const PORT = process.env.PORT || 3000;
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
@@ -276,12 +269,46 @@ function getMockResponse(mood, entry) {
   return { reflection, suggestion };
 }
 
+// Donation Endpoint
+app.post("/api/donate", (req, res) => {
+  const { amount, name, email } = req.body;
+
+  if (!amount || isNaN(amount) || amount <= 0) {
+    return sendResponse(res, 400, { message: "Invalid donation amount." });
+  }
+
+  // Simulate payment processing
+  console.log(
+    `Processing donation of $${amount} from ${name || "Anonymous"} (${
+      email || "No email"
+    })`
+  );
+
+  // TODO: Integrate with Stripe, PayPal, etc. here.
+
+  setTimeout(() => {
+    sendResponse(res, 200, {
+      success: true,
+      message: `Thank you${
+        name ? ", " + name : ""
+      }! Your donation of ₹${amount} has been received.`,
+    });
+  }, 1000);
+});
+
 // Health check endpoint
 app.get("/api/health", (req, res) => {
   sendResponse(res, 200, {
     status: "ok",
     message: "Mind Oasis API is running",
   });
+});
+
+// 404 handler
+app.use((req, res) => {
+  res
+    .status(404)
+    .sendFile(path.join(projectRoot, "public", "pages", "404.html"));
 });
 
 // Start server

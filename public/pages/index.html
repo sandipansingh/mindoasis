@@ -181,6 +181,53 @@
 
     <app-footer></app-footer>
 
+    <!-- Donation Modal -->
+    <div id="donation-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Support Mind Oasis</h2>
+        <p>
+          Your donation helps us provide free mental health resources to
+          everyone.
+        </p>
+        <form id="donation-form">
+          <div class="form-group">
+            <label for="amount">Amount (₹)</label>
+            <input
+              type="number"
+              id="amount"
+              name="amount"
+              min="1"
+              required
+              placeholder="Enter amount"
+            />
+          </div>
+          <div class="form-group">
+            <label for="donor-name">Name (Optional)</label>
+            <input
+              type="text"
+              id="donor-name"
+              name="donor-name"
+              placeholder="Your Name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="donor-email">Email (Optional)</label>
+            <input
+              type="email"
+              id="donor-email"
+              name="donor-email"
+              placeholder="Your Email"
+            />
+          </div>
+          <button type="submit" class="primary-cta-btn" style="width: 100%">
+            Donate Now
+          </button>
+        </form>
+        <div id="donation-message" class="hidden"></div>
+      </div>
+    </div>
+
     <script src="/components/footer.js"></script>
     <script src="/js/script.js"></script>
   </body>
