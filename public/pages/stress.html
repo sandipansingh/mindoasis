@@ -4,70 +4,113 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stress Management | Mind Oasis</title>
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
     <nav class="navbar">
-      <div class="nav-brand">MIND OASIS</div>
-      <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="#symptoms">Symptoms</a>
-        <a href="#tips">Tips</a>
+      <div class="nav-brand">
+        <a href="/">MIND OASIS</a>
       </div>
-      <button class="nav-donate-btn">Donate</button>
     </nav>
 
-    <section class="content-page">
-      <h1>Stress Management</h1>
-      <p>
-        Stress Management involves using techniques like exercise, mindfulness
-        (deep breathing, meditation), prioritizing sleep, healthy eating, and
-        strong social connections.
-      </p>
+    <section class="page-hero">
+      <div class="hero-content">
+        <h1>Stress Management</h1>
+        <p>
+          Stress is a normal part of life, but chronic stress can take a toll on
+          your health. Learning to manage it is key to maintaining balance and
+          well-being.
+        </p>
+      </div>
+    </section>
 
-      <hr />
-
+    <div class="content-container">
       <section id="symptoms">
-        <h2>Common Symptoms of Chronic Stress / Overload</h2>
-        <ul class="info-list">
-          <li>PERSISTENT SADNESS</li>
-          <li>LOSS OF INTEREST</li>
-          <li>FATIGUE</li>
-          <li>SLEEP/APPETITE CHANGES</li>
-          <li>DIFFICULTY CONCENTRATING</li>
-          <li>FEELINGS OF WORTHLESSNESS</li>
-          <li>THOUGHTS OF DEATH OR SUICIDE</li>
-          <li>TALK TO SOMEONE YOU TRUST</li>
-        </ul>
+        <h2 class="section-title">Signs of Overload</h2>
+        <div class="card-grid">
+          <div class="info-card">
+            <h3><i class="fas fa-head-side-virus"></i> Physical</h3>
+            <ul>
+              <li>Headaches or muscle tension</li>
+              <li>Fatigue and low energy</li>
+              <li>Sleep disturbances</li>
+              <li>Digestive issues</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h3><i class="fas fa-brain"></i> Mental</h3>
+            <ul>
+              <li>Difficulty concentrating</li>
+              <li>Constant worrying</li>
+              <li>Forgetfulness</li>
+              <li>Racing thoughts</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h3><i class="fas fa-face-tired"></i> Emotional</h3>
+            <ul>
+              <li>Irritability or short temper</li>
+              <li>Feeling overwhelmed</li>
+              <li>Anxiety or nervousness</li>
+              <li>Mood swings</li>
+            </ul>
+          </div>
+        </div>
       </section>
-
-      <hr />
 
       <section id="tips">
-        <h2>Helpful Tips to Manage Stress</h2>
-        <ul class="info-list">
-          <li>Practice the 4-7-8 deep breathing technique.</li>
-          <li>Schedule 30 minutes of uninterrupted exercise daily.</li>
-          <li>Use mindfulness or meditation apps (e.g., Calm).</li>
-          <li>Set clear boundaries between work and personal life.</li>
-          <li>Prioritize getting 7-9 hours of sleep nightly.</li>
-        </ul>
+        <h2 class="section-title">Management Strategies</h2>
+        <div class="card-grid">
+          <div class="info-card">
+            <h3><i class="fas fa-wind"></i> Mindfulness</h3>
+            <ul>
+              <li>Practice 4-7-8 deep breathing</li>
+              <li>Use meditation apps (e.g., Calm)</li>
+              <li>Practice progressive muscle relaxation</li>
+              <li>Take mindful breaks</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h3><i class="fas fa-running"></i> Active Living</h3>
+            <ul>
+              <li>Schedule 30 mins of exercise daily</li>
+              <li>Get outside for fresh air</li>
+              <li>Prioritize 7-9 hours of sleep</li>
+              <li>Eat a balanced diet</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h3><i class="fas fa-balance-scale"></i> Balance</h3>
+            <ul>
+              <li>Set boundaries between work/life</li>
+              <li>Learn to say "no"</li>
+              <li>Make time for hobbies</li>
+              <li>Connect with friends</li>
+            </ul>
+          </div>
+        </div>
       </section>
 
-      <hr />
-
-      <section class="help-box">
-        <h3>Need Immediate Help?</h3>
+      <section class="help-box-enhanced">
+        <h3><i class="fas fa-life-ring"></i> Need Immediate Support?</h3>
         <p>
-          If stress or depression feels unmanageable or you’re in distress,
-          consider reaching out to a mental health professional or local
-          helpline.
+          If stress feels unmanageable or you’re in distress, consider reaching
+          out to a mental health professional or local helpline.
         </p>
       </section>
-    </section>
+    </div>
+
+    <app-footer></app-footer>
+
+    <script src="/components/footer.js"></script>
   </body>
 </html>

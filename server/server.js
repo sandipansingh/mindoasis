@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import fs from "fs";
 import path from "path";
 import dotenv from "dotenv";
 import { fileURLToPath } from "url";
@@ -30,6 +31,43 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(projectRoot, "public", "pages", "index.html"));
 });
 
+// Serve pages safely
+app.get("/:page", (req, res, next) => {
+  const page = req.params.page;
+  const filePath = path.join(projectRoot, "public", "pages", `${page}.html`);
+
+  // Check if page exists
+  if (!fs.existsSync(filePath)) {
+    return next(); // Proceed to 404 handler
+  }
+
+  res.sendFile(filePath);
+});
+
+// Serve components
+app.get("/components/:component", (req, res, next) => {
+  const componentPath = path.join(
+    projectRoot,
+    "public",
+    "components",
+    req.params.component
+  );
+
+  if (!fs.existsSync(componentPath)) {
+    return next();
+  }
+
+  res.sendFile(componentPath);
+});
+
+// 404 handler
+app.use((req, res) => {
+  res
+    .status(404)
+    .sendFile(path.join(projectRoot, "public", "pages", "404.html"));
+});
+
+// Configuration
 const PORT = process.env.PORT || 3000;
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 const OPENROUTER_MODEL =
