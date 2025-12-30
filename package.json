@@ -1,7 +1,7 @@
 {
   "name": "mindoasis",
-  "version": "1.1.0",
-  "description": "Mental health and wellness platform",
+  "version": "1.2.1",
+  "description": "A mental health and wellness platform API using Express.js and OpenRouter SDK.",
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
